@@ -1,0 +1,147 @@
+
+.header_page{
+	width: 100%;
+	background: $black-bg-cl;
+	display: none;
+	position: fixed;
+	z-index: 999;
+	.active{
+		display: block;
+		position: fixed;
+	}
+	nav{
+		height: 80px;
+		ul{
+			@include midflex();
+			height: 100%;
+			li{
+				align-items: center;
+				font-size: $fs-nav;
+				a{
+					color: $white-color;
+					line-height: 22px;
+					padding: 19px 34px;
+					font-weight: bold;
+					letter-spacing: 2px;
+					text-transform: uppercase;
+					position: relative;
+					font-family: Arial, Helvetica, sans-serif;
+					text-decoration: none;
+
+					&::after{
+						content: "";
+						position: absolute;
+						width: 0%;
+						display: block;
+						height: 2px;
+						left: 0;
+						right: 0;
+						margin: auto;
+						background-color: $white-color;
+						transition: all 0.7s cubic-bezier(0.075, 0.82, 0.165, 1);
+					}
+					&:hover::after{
+						width: 80%;
+						transition: all 0.7s cubic-bezier(0.075, 0.82, 0.165, 1);
+						
+					}
+				}
+				.brand-none{
+					cursor: pointer;
+					&:hover::after{
+						display: none;
+					}
+				}
+				.hv{
+					&::before{
+						display: none;
+					}
+					&::after{
+						display: none;
+					}
+				}
+				.brand{
+					color: $white-color;
+					width: 72px;
+					height: 50px;
+					margin: 0 10px;
+					&::after{
+						display: none;
+					}
+				}
+			}
+		}
+	}
+	.menu_mobile-responsive{
+		padding: 20px;
+		display: none;
+		.hambuger{
+			display: flex;
+			align-items: center;
+			cursor: pointer;
+			img{
+				width: 30px;
+				height: 20px;
+			}
+			span{
+				@include text(13px,Arial,40px, $white-cl,uppercase);
+				cursor: pointer;
+				padding-left: 10px;
+			}
+			
+		}
+		.brand{
+			img{
+				width: 40px;
+				height: 35px;
+			}
+		}
+	}
+}
+
+
+@include tablet{
+	.header_page{
+		nav{
+			ul{
+				li{
+					a{
+						padding: 10px;
+					}
+				}
+			}
+		}
+	}
+}
+
+@include mobile{
+	.header_page{
+		width: 100%;
+		background: $blue-cl;
+		nav{
+			display: none;
+		}
+		.menu_mobile-responsive{
+			padding: 5px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}			
+}
+
+@include mobile-xxs{
+	.header_page{
+		width: 100%;
+		background: $blue-cl;
+		nav{
+			display: none;
+		}
+		.menu_mobile-responsive{
+			padding: 5px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+}
